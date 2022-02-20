@@ -9,7 +9,8 @@ find_first_year(tables, first_week_number)
 \arguments{
 \item{tables}{Tables output by \code{extract_tables()}.}
 
-\item{first_week_number}{Week number in format "v \link{week number} as output by \code{find_week_number()}.}
+\item{first_week_number}{Week number in format "v \link{week number} as output by
+\code{find_week_number()}.}
 }
 \value{
 The first year of the schedule as a character variable.
@@ -21,5 +22,6 @@ Find the first year in the schedule.
 first_year <- find_first_year(tables, 'v 7')
 }
 \seealso{
-\code{\link[=extract_tables]{extract_tables()}}, \code{\link[=find_week_number]{find_week_number()}}
+\code{\link[=extract_tables]{extract_tables()}},
+\code{\link[=find_week_number]{find_week_number()}}
 }

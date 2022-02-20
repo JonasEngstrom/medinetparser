@@ -3,11 +3,13 @@
 #' Find the first year in the schedule.
 #'
 #' @param tables Tables output by `extract_tables()`.
-#' @param first_week_number Week number in format "v [week number] as output by `find_week_number()`.
+#' @param first_week_number Week number in format "v [week number] as output by
+#'   `find_week_number()`.
 #'
 #' @return The first year of the schedule as a character variable.
 #' @export
-#' @seealso [medinetparser::extract_tables()], [medinetparser::find_week_number()]
+#' @seealso [medinetparser::extract_tables()],
+#'   [medinetparser::find_week_number()]
 #' @md
 #'
 #' @examples
