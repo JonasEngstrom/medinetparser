@@ -8,6 +8,8 @@ Description: Parses data from the Medinet Scheduling system, developed
     by Medical Networks Scandinavia AB, for analysis in R. The package
     is meant to aid scheduling and follow up. This project is in no
     way connected to the developers of Medinet.
+Depends:
+    tidyverse
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
