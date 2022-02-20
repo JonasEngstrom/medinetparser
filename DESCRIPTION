@@ -10,6 +10,8 @@ Description: Parses data from the Medinet Scheduling system, developed
     way connected to the developers of Medinet.
 Depends:
     tidyverse
+Imports:
+    tidyverse
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
