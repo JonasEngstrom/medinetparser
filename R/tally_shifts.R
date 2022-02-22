@@ -22,8 +22,6 @@ tally_shifts <- function(table) {
     tidyr::fill(X2) %>%
     tidyr::pivot_wider(names_from = X2, values_from = X1, values_fn = list)
 
-#  return(temporary_table)
-
   return_table <- tibble::tibble()
 
   for (i in 1:length(temporary_table)) {
