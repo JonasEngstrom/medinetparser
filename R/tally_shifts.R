@@ -20,7 +20,10 @@ tally_shifts <- function(table) {
       )[1]:n()
     ) %>%
     tidyr::fill(X2) %>%
-    tidyr::pivot_wider(names_from = X2, values_from = X1, values_fn = list)
+    tidyr::pivot_wider(names_from = X2,
+                       values_from = X1,
+                       names_repair = 'unique',
+                       values_fn = list)
 
   return_table <- tibble::tibble()
 
