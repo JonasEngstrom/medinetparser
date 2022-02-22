@@ -16,6 +16,12 @@ A list of HTML tables for use with rvest.
 Loads the HTML file downloaded from Medinet and returns the HTML tables for
 further analysis. NB! This takes a while to run. Be patient.
 }
+\details{
+If you run into memory problems using this function, exporting fewer weeks
+at a time from Medinet is suggested. Tallies can easily be added if you are
+interested in analyzing a longer period of time. Tables showing distribution
+of shifts over time can be bound using dplyr’s \code{bind_cols()}.
+}
 \examples{
 tables <- extract_tables('data.html')
 }
