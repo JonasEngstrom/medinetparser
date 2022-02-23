@@ -4,24 +4,17 @@
 \alias{find_first_year}
 \title{Find First Year}
 \usage{
-find_first_year(tables, first_week_number)
+find_first_year(file_path)
 }
 \arguments{
-\item{tables}{Tables output by \code{extract_tables()}.}
-
-\item{first_week_number}{Week number in format "v \link{week number} as output by
-\code{find_week_number()}.}
+\item{file_path}{The file path to the schedule HTML file.}
 }
 \value{
-The first year of the schedule as a character variable.
+The first year of the schedule as an integer variable.
 }
 \description{
 Find the first year in the schedule.
 }
 \examples{
-first_year <- find_first_year(tables, 'v 7')
-}
-\seealso{
-\code{\link[=extract_tables]{extract_tables()}},
-\code{\link[=find_week_number]{find_week_number()}}
+first_year <- find_first_year('./data.html')
 }

@@ -3,11 +3,11 @@
 #' Finds the largest table among the ones input from Medinet, as this is the
 #' most likely to contain the schedule data.
 #'
-#' @param tables HTML tables imported by *extract_tables*.
+#' @param tables HTML tables imported by *extract_table*.
 #'
 #' @return An integer indicating which table has the largest area.
 #' @export
-#' @seealso [medinetparser::extract_tables()]
+#' @seealso [medinetparser::extract_table()]
 #' @md
 #'
 #' @examples

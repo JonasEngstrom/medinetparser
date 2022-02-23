@@ -7,7 +7,7 @@
 find_largest_table(tables)
 }
 \arguments{
-\item{tables}{HTML tables imported by \emph{extract_tables}.}
+\item{tables}{HTML tables imported by \emph{extract_table}.}
 }
 \value{
 An integer indicating which table has the largest area.
@@ -20,5 +20,5 @@ most likely to contain the schedule data.
 largest_table_index <- find_largest_table(tables)
 }
 \seealso{
-\code{\link[=extract_tables]{extract_tables()}}
+\code{\link[=extract_table]{extract_table()}}
 }

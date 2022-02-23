@@ -2,11 +2,11 @@
 #'
 #' Outputs a tally of different shift types against each doctor in the schedule.
 #'
-#' @param table A table as extracted by `extract_tables()` and indexed by `find_largest_table()`.
+#' @param table A table as extracted by `extract_table()` and indexed by `find_largest_table()`.
 #'
 #' @return A tibble of shift types against doctors.
 #' @export
-#' @seealso [medinetparser::extract_tables()], [medinetparser::find_largest_table()]
+#' @seealso [medinetparser::extract_table()], [medinetparser::find_largest_table()]
 #' @md
 #'
 #' @examples

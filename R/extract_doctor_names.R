@@ -2,12 +2,12 @@
 #'
 #' Returns a tibble of the doctors’ names from the schedule.
 #'
-#' @param table A table as returned by `extract_tables()` and indexed by
+#' @param table A table as returned by `extract_table()` and indexed by
 #'   `find_largest_table()`.
 #'
 #' @return A tibble of doctors’ names.
 #' @export
-#' @seealso [medinetparser::extract_tables()],
+#' @seealso [medinetparser::extract_table()],
 #'   [medinetparser::find_largest_table()]
 #'
 #' @examples

@@ -2,13 +2,13 @@
 #'
 #' Finds the first and last date of the schedule.
 #'
-#' @param table Schedule table as found by `extract_tables()`.
+#' @param table Schedule table as found by `extract_table()`.
 #' @param first_year_of_schedule First year of schedule as found by
 #'   `find_first_year()`.
 #'
 #' @return Outputs a list consisting of two lubridate dates.
 #' @export
-#' @seealso [medinetparser::extract_tables()],
+#' @seealso [medinetparser::extract_table()],
 #'   [medinetparser::find_first_year()]
 #' @md
 #'
