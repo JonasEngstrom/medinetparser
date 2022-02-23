@@ -13,21 +13,12 @@
 #' @examples
 #' largest_table_index <- find_largest_table(tables)
 find_largest_table <- function(tables) {
-  table_sizes <- dplyr::tibble()
-
+  j <- 1
   for (i in 1:length(tables)) {
-    table_sizes <- table_sizes %>%
-      dplyr::bind_rows(
-        tibble::as_tibble_row(
-          c(table_number = i,
-            table_area = dim(tables[[i]])[1] * dim(tables[[i]])[2]
-            )
-        )
-      )
+    if (tables[[i]] %>% dim() %>% prod() > tables[[j]] %>% dim() %>% prod()) {
+      j <- i
+    }
   }
 
-  table_sizes %>%
-    dplyr::filter(table_area == max(table_area)) %>%
-    pull(table_number) %>%
-    return()
+  return(j)
 }
