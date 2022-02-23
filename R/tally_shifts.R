@@ -22,6 +22,7 @@ tally_shifts <- function(table) {
     dplyr::mutate(X2 = if_else(grepl(',', X1), X1, '')) %>%
     dplyr::na_if('') %>%
     tidyr::fill(X2) %>%
+    dplyr::filter(!grepl('v \\d{1,2}', X1) & !grepl('v \\d{1,2}', X2)) %>%
     dplyr::filter(!(X1 %in% X2)) %>%
     tidyr::pivot_wider(names_from = X2,
                        values_from = X1,
