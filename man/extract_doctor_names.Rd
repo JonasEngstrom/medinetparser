@@ -7,7 +7,7 @@
 extract_doctor_names(table)
 }
 \arguments{
-\item{table}{A table as returned by `extract_tables()` and indexed by
+\item{table}{A table as returned by `extract_table()` and indexed by
 `find_largest_table()`.}
 }
 \value{
@@ -20,6 +20,6 @@ Returns a tibble of the doctors’ names from the schedule.
 doctor_names <- extract_doctor_names(table)
 }
 \seealso{
-[medinetparser::extract_tables()],
+[medinetparser::extract_table()],
   [medinetparser::find_largest_table()]
 }

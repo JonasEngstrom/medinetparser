@@ -7,7 +7,7 @@
 tally_shifts(table)
 }
 \arguments{
-\item{table}{A table as extracted by \code{extract_tables()} and indexed by \code{find_largest_table()}.}
+\item{table}{A table as extracted by \code{extract_table()} and indexed by \code{find_largest_table()}.}
 }
 \value{
 A tibble of shift types against doctors.
@@ -19,5 +19,5 @@ Outputs a tally of different shift types against each doctor in the schedule.
 shift_tallies <- tally_shifts(table[[19]])
 }
 \seealso{
-\code{\link[=extract_tables]{extract_tables()}}, \code{\link[=find_largest_table]{find_largest_table()}}
+\code{\link[=extract_table]{extract_table()}}, \code{\link[=find_largest_table]{find_largest_table()}}
 }

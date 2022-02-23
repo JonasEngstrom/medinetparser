@@ -7,7 +7,7 @@
 find_date_limits(table, first_year_of_schedule)
 }
 \arguments{
-\item{table}{Schedule table as found by \code{extract_tables()}.}
+\item{table}{Schedule table as found by \code{extract_table()}.}
 
 \item{first_year_of_schedule}{First year of schedule as found by
 \code{find_first_year()}.}
@@ -22,6 +22,6 @@ Finds the first and last date of the schedule.
 dates <- find_date_limits(table, '2022')
 }
 \seealso{
-\code{\link[=extract_tables]{extract_tables()}},
+\code{\link[=extract_table]{extract_table()}},
 \code{\link[=find_first_year]{find_first_year()}}
 }
