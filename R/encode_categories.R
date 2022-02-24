@@ -16,5 +16,6 @@ encode_categories <- function(categorical_variable, prime_keys) {
   categorical_variable %>%
     array() %>%
     apply(1, function(x) prime_keys[str_detect(x, names(prime_keys))] %>%
-            prod(na.rm = TRUE))
+            prod(na.rm = TRUE)) %>%
+    return()
 }
