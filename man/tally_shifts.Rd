@@ -4,20 +4,20 @@
 \alias{tally_shifts}
 \title{Tally Shifts}
 \usage{
-tally_shifts(table)
+tally_shifts(schedule_table)
 }
 \arguments{
-\item{table}{A table as extracted by \code{extract_table()} and indexed by \code{find_largest_table()}.}
+\item{schedule_table}{A table as extracted by \code{extract_table()}.}
 }
 \value{
-A tibble of shift types against doctors.
+A tidy tibble of shift types against doctors.
 }
 \description{
 Outputs a tally of different shift types against each doctor in the schedule.
 }
 \examples{
-shift_tallies <- tally_shifts(table[[19]])
+shift_tallies <- tally_shifts(schedule_table)
 }
 \seealso{
-\code{\link[=extract_table]{extract_table()}}, \code{\link[=find_largest_table]{find_largest_table()}}
+\code{\link[=extract_table]{extract_table()}}
 }

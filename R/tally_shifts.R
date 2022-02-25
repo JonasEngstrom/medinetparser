@@ -2,21 +2,21 @@
 #'
 #' Outputs a tally of different shift types against each doctor in the schedule.
 #'
-#' @param table A table as extracted by `extract_table()` and indexed by `find_largest_table()`.
+#' @param schedule_table A table as extracted by `extract_table()`.
 #'
-#' @return A tibble of shift types against doctors.
+#' @return A tidy tibble of shift types against doctors.
 #' @export
-#' @seealso [medinetparser::extract_table()], [medinetparser::find_largest_table()]
+#' @seealso [medinetparser::extract_table()]
 #' @md
 #'
 #' @examples
-#' shift_tallies <- tally_shifts(table[[19]])
-tally_shifts <- function(table) {
-  temporary_table <- table %>%
+#' shift_tallies <- tally_shifts(schedule_table)
+tally_shifts <- function(schedule_table) {
+  temporary_table <- schedule_table %>%
     dplyr::select(X1, X2) %>%
     dplyr::slice(
       which(
-        grepl(',', table[[1]]) & !grepl('\\d', table[[1]])
+        grepl(',', schedule_table[[1]]) & !grepl('\\d', schedule_table[[1]])
       )[1]:n()
     ) %>%
     dplyr::mutate(X2 = if_else(grepl(',', X1), X1, '')) %>%
@@ -34,7 +34,7 @@ tally_shifts <- function(table) {
   for (i in 1:length(temporary_table)) {
     return_table <- temporary_table[i] %>%
       colnames() %>%
-      tibble::as_tibble_col(column_name = 'Doctor') %>%
+      tibble::as_tibble_col(column_name = 'doctor_name') %>%
       dplyr::bind_cols(
         tibble::as_tibble_row(
           temporary_table[[i]][[1]] %>% table(), .name_repair = 'minimal'
@@ -44,8 +44,10 @@ tally_shifts <- function(table) {
   }
 
   return_table %>%
-    dplyr::mutate(across(!Doctor, as.integer)) %>%
-    dplyr::mutate(across(!Doctor, ~ tidyr::replace_na(.x, 0))) %>%
-    dplyr::arrange(Doctor) %>%
+    dplyr::mutate(across(!doctor_name, as.integer)) %>%
+    dplyr::mutate(across(!doctor_name, ~ tidyr::replace_na(.x, 0))) %>%
+    tidyr::pivot_longer(-doctor_name, names_to = 'shift_type', values_to = 'n') %>%
+    dplyr::arrange(doctor_name, shift_type) %>%
+    dplyr::mutate(across(c(doctor_name, shift_type), as_factor)) %>%
     return()
 }
