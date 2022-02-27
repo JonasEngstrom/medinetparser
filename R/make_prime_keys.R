@@ -1,11 +1,11 @@
 #' Make Prime Keys
 #'
-#' Generates keys that can be used for endcoding several different categorical
+#' Generates keys that can be used for encoding several different categorical
 #' values in the same field of a tibble.
 #'
 #' @param categories A list of categories for which to generate keys.
 #'
-#' @return A list of prime numbers, named afer the input categories.
+#' @return A list of prime numbers, named after the input categories.
 #' @export
 #'
 #' @examples

@@ -10,10 +10,10 @@ make_prime_keys(categories)
 \item{categories}{A list of categories for which to generate keys.}
 }
 \value{
-A list of prime numbers, named afer the input categories.
+A list of prime numbers, named after the input categories.
 }
 \description{
-Generates keys that can be used for endcoding several different categorical
+Generates keys that can be used for encoding several different categorical
 values in the same field of a tibble.
 }
 \examples{
