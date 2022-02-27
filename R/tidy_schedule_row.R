@@ -36,7 +36,7 @@ tidy_schedule_row <- function(schedule_row, encoding_keys, schedule_dates) {
     dplyr::filter(value != -1, size == 0) %>%
     tidyr::uncount(counter) %>%
     dplyr::filter(dplyr::row_number() %% 2 == 0) %>%
-    dplyr::mutate(doctor = dplyr::slice(tab2, 1) %>% dplyr::pull(decoded)) %>%
+    dplyr::mutate(doctor = dplyr::slice(return_table, 1) %>% dplyr::pull(decoded)) %>%
     dplyr::slice(2:n()) %>%
     dplyr::slice(1:dplyr::pull(dplyr::count(schedule_dates))) %>%
     dplyr::bind_cols(schedule_dates) %>%
