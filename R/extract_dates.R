@@ -33,6 +33,28 @@ extract_dates <- function(schedule_table, first_year) {
     tidyr::pivot_longer(cols = dplyr::everything()) %>%
     dplyr::distinct(value) %>%
     tidyr::drop_na() %>%
-    dplyr::rename(date = value) %>%
+    dplyr::rename(date = value)
+
+  return_table %>%
+    dplyr::mutate(
+      date = lubridate::ymd(
+        date + lubridate::years(
+          as.integer(
+            date <= dplyr::slice(return_table, dplyr::n())
+            )
+          )
+        )
+      ) %>%
+    dplyr::mutate(
+      constant = (
+        date %>% lubridate::year() -
+          dplyr::slice(return_table, dplyr::n()) %>%
+          dplyr::pull(date) %>%
+          lubridate::year()
+        )
+      ) %>%
+    dplyr::mutate(constant = constant %>% min()) %>%
+   dplyr::mutate(date = date - lubridate::years(constant)) %>%
+    dplyr::select(-constant) %>%
     return()
 }
