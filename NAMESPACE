@@ -2,6 +2,7 @@
 
 export(decode_categories)
 export(encode_categories)
+export(extract_dates)
 export(extract_doctor_names)
 export(extract_table)
 export(find_date_limits)
