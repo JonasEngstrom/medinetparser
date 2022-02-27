@@ -14,7 +14,7 @@ find_first_year <- function(file_path) {
     rvest::read_html() %>%
     rvest::html_elements('#yearweek option') %>%
     stringr::str_squish() %>%
-    stringr::str_extract('selected>v \\d, \\d{4}') %>%
+    stringr::str_extract('selected>v \\d{1,2}, \\d{4}') %>%
     tibble::as_tibble() %>%
     tidyr::drop_na() %>%
     dplyr::pull() %>%
