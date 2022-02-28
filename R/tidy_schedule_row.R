@@ -44,20 +44,34 @@ tidy_schedule_row <- function(schedule_row, encoding_keys, schedule_dates) {
       dplyr::mutate(size = ifelse(dplyr::lag(size) > 0,
                                   dplyr::lag(size) - 1,
                                   size))
-    }
+  }
 
-  return_table %>%
+  return_table <- return_table %>%
     dplyr::mutate(size = dplyr::lag(size)) %>%
     dplyr::filter(value != -1, size == 0) %>%
     tidyr::uncount(counter) %>%
     dplyr::filter(dplyr::row_number() %% 2 == 0) %>%
-    dplyr::mutate(doctor = dplyr::slice(return_table, 1) %>% dplyr::pull(decoded)) %>%
-    dplyr::slice(2:n()) %>%
+    dplyr::mutate(doctor = dplyr::slice(return_table, 1) %>% dplyr::pull(decoded))
+
+  start_index <- (2-((slice(return_table, 1) %>%
+                        unnest(decoded) %>%
+                        count()) - 1 %>%
+                       abs())) %>%
+    pull() %>%
+    as.integer()
+
+  return_table %>%
+    dplyr::slice(start_index:n()) %>%
     dplyr::slice(1:dplyr::pull(dplyr::count(schedule_dates))) %>%
     dplyr::bind_cols(schedule_dates) %>%
     dplyr::select(-name, -value, -size) %>%
     dplyr::relocate(date, doctor, shift_type = decoded) %>%
-    tidyr::unnest(c(shift_type, doctor)) %>%
+    dplyr::filter(length(shift_type) != 0) %>%
+    tidyr::unnest(c(shift_type)) %>%
+    tidyr::unnest(c(doctor)) %>%
+    dplyr::filter(str_detect(doctor, '.,.')) %>%
+    dplyr::filter(doctor != shift_type) %>%
     dplyr::mutate(across(c(doctor, shift_type), forcats::as_factor)) %>%
+    dplyr::slice(abs(start_index - 3):n()) %>%
     return()
 }
