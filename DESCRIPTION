@@ -11,11 +11,13 @@ Description: Parses data from the Medinet Scheduling system, developed
 Depends:
     tidyverse,
     rvest,
-    lubridate
+    lubridate,
+    progress
 Imports:
     tidyverse,
     rvest,
-    lubridate
+    lubridate,
+    progress
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
