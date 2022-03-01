@@ -2,10 +2,13 @@
 
 export(decode_categories)
 export(encode_categories)
+export(extract_dates)
 export(extract_doctor_names)
 export(extract_table)
+export(extract_tidy_schedule)
 export(find_date_limits)
 export(find_first_year)
 export(generate_primes)
 export(make_prime_keys)
 export(tally_shifts)
+export(tidy_schedule_row)
