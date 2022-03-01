@@ -71,7 +71,6 @@ tidy_schedule_row <- function(schedule_row, encoding_keys, schedule_dates) {
     tidyr::unnest(c(doctor)) %>%
     dplyr::filter(str_detect(doctor, '.,.')) %>%
     dplyr::filter(doctor != shift_type) %>%
-    dplyr::mutate(across(c(doctor, shift_type), forcats::as_factor)) %>%
     dplyr::slice(abs(start_index - 3):n()) %>%
     return()
 }
