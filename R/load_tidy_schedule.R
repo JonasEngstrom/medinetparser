@@ -24,8 +24,8 @@ load_tidy_schedule <- function(path_name) {
                     lubridate::ymd()) %>%
     dplyr::select(-day_id) %>%
     tidyr::unnest(shift_type) #%>%
-#    dplyr::mutate(shift_types = shift_types %>%
-#                    forcats::as_factor())
+    dplyr::mutate(shift_types = shift_types %>%
+                    forcats::as_factor())
 
   rm(day_ids, shift_types)
 
@@ -47,9 +47,9 @@ load_tidy_schedule <- function(path_name) {
   names_by_ids <- doctor_names %>%
     dplyr::bind_cols(doctor_ids) %>%
     dplyr::mutate(doctor_id = stringr::str_extract(doctor_id, '\\d{1,3}') %>%
-                    as.integer()) #%>%
-#    dplyr::mutate(doctor_name = doctor_name %>%
-#                    forcats::as_factor())
+                    as.integer()) %>%
+    dplyr::mutate(doctor_name = doctor_name %>%
+                    forcats::as_factor())
 
   rm(doctor_names, doctor_ids)
 
