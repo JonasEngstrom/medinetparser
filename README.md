@@ -1,10 +1,10 @@
 # Medinet Parser
 
-Parses data from the Medinet Scheduling system, developed by [Medical Networks Scandinavia AB](https://www.medinetworks.se), for analysis in R. The package is meant to aid scheduling and follow up. This project is in no way connected to the developers of Medinet.
+Parses data from the Medinet Scheduling system, developed by [Medical Networks Scandinavia AB](https://www.medinetworks.se), for analysis in R, aiding scheduling and follow up. This project is in no way connected to the developers of Medinet.
 
-## Using the *medinetparser* Package during Development
+## Installing the *medinetparser* Package
 
-This package is still in early development and function calls as well as the package structure as a whole may change substantially. Should you still wish to use it in its current state the following steps will describe how to.
+The following steps describe how to install `medinetparser` from GitHub.
 
 1. Install *devtools*
 ```r
@@ -22,8 +22,6 @@ install_github('JonasEngstrom/medinetparser')
 ```r
 library(medinetparser)
 ```
-
-----
 
 ## Get Started Using the Medinet Parser
 
