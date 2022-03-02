@@ -16,7 +16,7 @@ library(devtools)
 ```
 3. Install *medinetparser*
 ```r
-install_github('JonasEngstrom/medinetparser')
+install_github('JonasEngstrom/medinetparser', build_vignettes = TRUE)
 ```
 4. Load *medinetparser*
 ```r
