@@ -1,6 +1,8 @@
 #' Load Tidy Schedule
 #'
 #' Loads a HTML file from Medinet and returns the schedule as a tidy tibble.
+#' Note that the function might take a few minutes to run on large schedule
+#' files.
 #'
 #' @param file_path String containing the path to the HTML file.
 #'
