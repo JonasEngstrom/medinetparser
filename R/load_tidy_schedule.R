@@ -44,7 +44,7 @@ load_tidy_schedule <- function(file_path) {
   rm(day_ids, shift_types)
 
   doctor_elements <- html_data %>%
-    rvest::html_elements('td.user.js-moveSlot [onmouseover^=Medinet]')
+    rvest::html_elements('td .js-moveSlot [onmouseover^=Medinet]')
 
   doctor_names <- doctor_elements %>%
     rvest::html_text() %>%
