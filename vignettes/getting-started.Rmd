@@ -13,19 +13,19 @@ vignette: >
 Chances are you will already have finished installing the `medinetparser` package, as you are reading this vignette. But just as a quick recap, this is how you install the package from GitHub.
 
 1. Install *devtools*
-```{r}
+```r
 install.packages('devtools')
 ```
 2. Load *devtools*
-```{r}
+```r
 library(devtools)
 ```
 3. Install *medinetparser*
-```{r}
+```r
 install_github('JonasEngstrom/medinetparser')
 ```
 4. Load *medinetparser*
-```{r}
+```r
 library(medinetparser)
 ```
 
@@ -53,8 +53,8 @@ Medinet Parser currently does not support scraping data directly from Medinet, a
 
 To load a Medinet schedule in R, use the function `load_tidy_schedule()`. It takes a file path as an argument and returns a tibble.
 
-```{r}
-my_loaded_schedule <- load_tidy_schedule('./medinetschedule.html")
+```r
+my_loaded_schedule <- load_tidy_schedule('./medinetschedule.html')
 ```
 
 The tibble can then be used with all the standard tidverse functions.
@@ -63,6 +63,6 @@ The tibble can then be used with all the standard tidverse functions.
 
 To quickly get an overview of the distribution of shifts per doctor the `tally_shifts()`function can be used to return a tally table. Note that the schedule first has to be loaded using the `my_loaded_schedule()` function.
 
-```{r}
+```r
 tally_table <- tally_shifts(my_loaded_schedule)
 ```
