@@ -29,7 +29,7 @@ load_tidy_schedule <- function(file_path) {
 
   shifts_by_days <- day_ids %>%
     dplyr::bind_cols(shift_types) %>%
-    dplyr::mutate(doctor_id = stringr::str_extract(day_id, '\\d{3}') %>%
+    dplyr::mutate(doctor_id = stringr::str_extract(day_id, '\\d{1,3}') %>%
                     as.integer()) %>%
     dplyr::mutate(date = stringr::str_extract(day_id, '\\d{4}-\\d{2}-\\d{2}') %>%
                     lubridate::ymd()) %>%
