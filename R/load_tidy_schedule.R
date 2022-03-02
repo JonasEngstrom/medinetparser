@@ -1,5 +1,16 @@
-load_tidy_schedule <- function(path_name) {
-  html_data <- rvest::read_html(path_name)
+#' Load Tidy Schedule
+#'
+#' Loads a HTML file from Medinet and returns the schedule as a tidy tibble.
+#'
+#' @param file_path String containing the path to the HTML file.
+#'
+#' @return A tidy tibble containing the schedule data for analysis.
+#' @export
+#'
+#' @examples
+#' schedule_tibble <- load_tidy_schedule('file_from_medinet.html')
+load_tidy_schedule <- function(file_path) {
+  html_data <- rvest::read_html(file_path)
 
   day_elements <- html_data %>%
     rvest::html_elements('[id^=day]')
