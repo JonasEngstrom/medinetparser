@@ -1,6 +1,8 @@
-# Medinet Parser
+# Medinet ParseR
 
 Parses data from the Medinet Scheduling system, developed by [Medical Networks Scandinavia AB](https://www.medinetworks.se), for analysis in R, aiding scheduling and follow up. This project is in no way connected to the developers of Medinet.
+
+Prefer working in Python? No problem. Check out Medinet ParseR’s sister package [Medinet ParsePy](https://github.com/JonasEngstrom/medinetparsepy).
 
 ## Installing the *medinetparser* Package
 
@@ -23,9 +25,9 @@ install_github('JonasEngstrom/medinetparser', build_vignettes = TRUE)
 library(medinetparser)
 ```
 
-## Get Started Using the Medinet Parser
+## Get Started Using the Medinet ParseR
 
-Medinet Parser currently does not support scraping data directly from Medinet, as this would require handling login credentials. Therefore data must first be downloaded manually, by following the subsequent steps.
+Medinet ParseR currently does not support scraping data directly from Medinet, as this would require handling login credentials. Therefore data must first be downloaded manually, by following the subsequent steps.
 
 1. Go to the [Medinet Website](https://medinet.se).
 
@@ -41,4 +43,4 @@ Medinet Parser currently does not support scraping data directly from Medinet, a
 
 7. Use the web brower’s save command.
 
-8. Save the page in HTML format. This will be your input file to Medinet Parser.
+8. Save the page in HTML format. This will be your input file to Medinet ParseR.
