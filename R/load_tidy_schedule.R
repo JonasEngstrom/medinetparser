@@ -72,5 +72,7 @@ load_tidy_schedule <- function(file_path) {
     dplyr::full_join(shifts_by_days, by = 'doctor_id') %>%
     dplyr::select(-doctor_id) %>%
     dplyr::relocate(date, doctor_name, shift_type) %>%
+    tidyr::drop_na() %>%
+    dplyr::mutate(shift_type = forcats::fct_drop(shift_type)) %>%
     return()
 }
