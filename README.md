@@ -8,24 +8,24 @@ Prefer working in Python? No problem! Check out Medinet ParseR’s sister packag
 
 The following steps describe how to install `medinetparser` from GitHub.
 
-1. Install *devtools*
+### 1. Install *devtools*
 ```r
 install.packages('devtools')
 ```
-2. Load *devtools*
+### 2. Load *devtools*
 ```r
 library(devtools)
 ```
-3. Install *medinetparser*
+### 3. Install *medinetparser*
 ```r
 install_github('JonasEngstrom/medinetparser', build_vignettes = TRUE)
 ```
-4. Load *medinetparser*
+### 4. Load *medinetparser*
 ```r
 library(medinetparser)
 ```
 
-## Get Started Using the Medinet ParseR
+## Get Started Using Medinet ParseR
 
 Medinet ParseR currently does not support scraping data directly from Medinet, as this would require handling login credentials. Therefore data must first be downloaded manually, by following the subsequent steps.
 
