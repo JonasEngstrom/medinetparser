@@ -2,7 +2,7 @@
 
 Parses data from the Medinet Scheduling system, developed by [Medical Networks Scandinavia AB](https://www.medinetworks.se), for analysis in R, aiding scheduling and follow up. This project is in no way connected to the developers of Medinet.
 
-Prefer working in Python? No problem. Check out Medinet ParseR’s sister package [Medinet ParsePy](https://github.com/JonasEngstrom/medinetparsepy).
+Prefer working in Python? No problem! Check out Medinet ParseR’s sister package [Medinet ParsePy](https://github.com/JonasEngstrom/medinetparsepy).
 
 ## Installing the *medinetparser* Package
 
