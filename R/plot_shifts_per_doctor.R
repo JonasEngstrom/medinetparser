@@ -35,13 +35,9 @@ plot_shifts_per_doctor <- function(tidy_schedule) {
     ggplot2::coord_flip() +
     ggplot2::ggtitle('Shifts Per Doctor',
                      paste('Between',
-                           tidy_schedule %>%
-                             summarise(min(date)) %>%
-                             pull(),
+                           medinetparser::get_min_max_dates(tidy_schedule)[1],
                            'and',
-                           tidy_schedule %>%
-                             summarise(max(date)) %>%
-                             pull())
+                           medinetparser::get_min_max_dates(tidy_schedule)[2])
                      ) +
     ggplot2::xlab('Doctor') +
     ggplot2::ylab('Shift Count') +
