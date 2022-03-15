@@ -14,8 +14,6 @@ A tidy tibble containing the schedule data for analysis.
 }
 \description{
 Loads a HTML file from Medinet and returns the schedule as a tidy tibble.
-Note that the function might take a few minutes to run on large schedule
-files.
 }
 \examples{
 schedule_tibble <- load_tidy_schedule('file_from_medinet.html')
