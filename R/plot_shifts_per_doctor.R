@@ -2,7 +2,7 @@
 #'
 #' Plots a bar graph of the total shifts per doctor, stacked by shift type.
 #'
-#' @param tidy_schedule A tibble containing a schedule, as loade by
+#' @param tidy_schedule A tibble containing a schedule, as loaded by
 #'   `load_tidy_schedule()`.
 #'
 #' @return A ggplot with a stacked barchart.

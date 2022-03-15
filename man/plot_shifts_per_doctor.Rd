@@ -7,7 +7,7 @@
 plot_shifts_per_doctor(tidy_schedule)
 }
 \arguments{
-\item{tidy_schedule}{A tibble containing a schedule, as loade by
+\item{tidy_schedule}{A tibble containing a schedule, as loaded by
 \code{load_tidy_schedule()}.}
 }
 \value{
