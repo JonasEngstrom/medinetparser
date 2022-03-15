@@ -5,7 +5,7 @@
 #' @param tidy_schedule A tibble containing a schedule, as loaded by
 #'   `load_tidy_schedule()`.
 #'
-#' @return A ggplot with a stacked barchart.
+#' @return A ggplot with a stacked bar chart.
 #' @export
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md

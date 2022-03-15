@@ -8,7 +8,7 @@
 #' @param text_distance The distance between the top of the bars and the number
 #'   of shifts. Defaults to 0.25.
 #'
-#' @return A ggplot with a barchart.
+#' @return A ggplot with a bar chart.
 #' @export
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md

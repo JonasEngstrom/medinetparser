@@ -14,7 +14,7 @@ plot_difference_from_mean(tidy_schedule, text_distance = 0.25)
 of shifts. Defaults to 0.25.}
 }
 \value{
-A ggplot with a barchart.
+A ggplot with a bar chart.
 }
 \description{
 Plots a bar graph of the difference between the number of shifts that a

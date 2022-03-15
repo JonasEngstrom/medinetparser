@@ -11,7 +11,7 @@ plot_shifts_per_doctor(tidy_schedule)
 \code{load_tidy_schedule()}.}
 }
 \value{
-A ggplot with a stacked barchart.
+A ggplot with a stacked bar chart.
 }
 \description{
 Plots a bar graph of the total shifts per doctor, stacked by shift type.
