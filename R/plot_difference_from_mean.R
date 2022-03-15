@@ -46,7 +46,7 @@ plot_difference_from_mean <- function(tidy_schedule, text_distance = 0.25) {
                            medinetparser::get_min_max_dates(tidy_schedule)[1],
                            'and',
                            medinetparser::get_min_max_dates(tidy_schedule)[2])) +
-    ggplot2::ylab(paste('Axis Shows Number of Shifts Difference from the Mean of ',
+    ggplot2::ylab(paste('Axis Shows Difference in Number of Shifts from the Mean of ',
                         averaged_schedule %>%
                           dplyr::summarize(mean(`sum(n)`)) %>%
                           round(2),
