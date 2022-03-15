@@ -11,7 +11,8 @@ Description: Parses data from the Medinet Scheduling system, developed
 Depends:
     tidyverse,
     rvest,
-    lubridate
+    lubridate,
+    R (>= 2.10)
 Imports:
     tidyverse,
     rvest,

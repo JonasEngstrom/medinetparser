@@ -22,15 +22,15 @@ plot_shifts_per_doctor(tidy_schedule)
 
 # Plot only a subset of shifts.
 tidy_schedule \%>\%
-    filter(shift_type \%in\% c('Pjour', 'Bjour')) \%>\%
+    dplyr::filter(shift_type \%in\% c('Pjour', 'Bjour')) \%>\%
     plot_shifts_per_doctor()
 
 # Same as above but also change axis label and save plot as
 # an object for later use.
 plot_of_shifts <- tidy_schedule \%>\%
-    filter(shift_type \%in\% c('Pjour', 'Bjour')) \%>\%
+    dplyr::filter(shift_type \%in\% c('Pjour', 'Bjour')) \%>\%
     plot_shifts_per_doctor() +
-    ylab('Number of Night Shifts')
+    ggplot2::ylab('Number of Night Shifts')
 }
 \seealso{
 \code{\link[=load_tidy_schedule]{load_tidy_schedule()}}
