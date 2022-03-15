@@ -20,7 +20,8 @@ Plots a bar graph of shift type frequencies.
 # Display graph right away.
 plot_shift_type_by_frequency(tidy_schedule)
 
-# Plot shifts for a single doctor, collapsing related categories and saving the ggplot to an object for later use.
+# Plot shifts for a single doctor, collapsing related categories,
+# saving the ggplot to an object for later use.
 saved_graph <- tidy_schedule \%>\%
     dplyr::filter(doctor_name == 'Åkesson, Annika') \%>\%
     dplyr::mutate(shift_type = forcats::fct_collapse(shift_type, `C-op` = c('Opkir', 'Opkk'))) \%>\%
