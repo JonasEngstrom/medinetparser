@@ -2,6 +2,7 @@
 
 export(get_min_max_dates)
 export(load_tidy_schedule)
+export(plot_difference_from_mean)
 export(plot_shift_type_by_frequency)
 export(plot_shifts_per_doctor)
 export(tally_shifts)
