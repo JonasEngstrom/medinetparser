@@ -11,7 +11,7 @@ get_min_max_dates(tidy_schedule)
 }
 \value{
 A list where the first value is the first date in the schedule and
-the last value is the last value in the schedule.
+the last value is the last date in the schedule.
 }
 \description{
 Returns a list of the first and last date in a schedule as returned by

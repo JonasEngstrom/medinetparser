@@ -6,7 +6,7 @@
 #' @param tidy_schedule A schedule as returned by `load_tidy_schedule()`
 #'
 #' @return A list where the first value is the first date in the schedule and
-#'   the last value is the last value in the schedule.
+#'   the last value is the last date in the schedule.
 #' @export
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md
