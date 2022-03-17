@@ -10,10 +10,12 @@ get_min_max_dates(tidy_schedule)
 \item{tidy_schedule}{A schedule as returned by \code{load_tidy_schedule()}}
 }
 \value{
-A list where the first value is the first date in the schedule and the last value is the last value in the schedule.
+A list where the first value is the first date in the schedule and
+the last value is the last value in the schedule.
 }
 \description{
-Returns a list of the first and last date in a schedule as returned by \code{load_tidy_schedule()}. Meant to be used for creating titles for plots.
+Returns a list of the first and last date in a schedule as returned by
+\code{load_tidy_schedule()}. Meant to be used for creating titles for plots.
 }
 \examples{
 min_max_dates <- get_min_max_dates(tidy_schedule)

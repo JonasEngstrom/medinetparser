@@ -1,10 +1,12 @@
 #' Get Min Max Dates
 #'
-#' Returns a list of the first and last date in a schedule as returned by `load_tidy_schedule()`. Meant to be used for creating titles for plots.
+#' Returns a list of the first and last date in a schedule as returned by
+#' `load_tidy_schedule()`. Meant to be used for creating titles for plots.
 #'
 #' @param tidy_schedule A schedule as returned by `load_tidy_schedule()`
 #'
-#' @return A list where the first value is the first date in the schedule and the last value is the last value in the schedule.
+#' @return A list where the first value is the first date in the schedule and
+#'   the last value is the last value in the schedule.
 #' @export
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md
