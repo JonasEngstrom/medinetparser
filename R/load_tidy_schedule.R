@@ -2,13 +2,16 @@
 #'
 #' Loads a HTML file from Medinet and returns the schedule as a tidy tibble.
 #'
+#' `schedule_tibble <- load_tidy_schedule('file_from_medinet.html')`
+#'
 #' @param file_path String containing the path to the HTML file.
 #'
 #' @return A tidy tibble containing the schedule data for analysis.
 #' @export
+#' @md
 #'
-#' @examples
-#' schedule_tibble <- load_tidy_schedule('file_from_medinet.html')
+#' @importFrom magrittr "%>%"
+#' @importFrom rlang .data
 load_tidy_schedule <- function(file_path) {
   html_data <- rvest::read_html(file_path)
 
@@ -29,15 +32,15 @@ load_tidy_schedule <- function(file_path) {
 
   shifts_by_days <- day_ids %>%
     dplyr::bind_cols(shift_types) %>%
-    dplyr::mutate(doctor_id = stringr::str_extract(day_id, '\\d{1,3}') %>%
+    dplyr::mutate(doctor_id = stringr::str_extract(.data$day_id, '\\d{1,3}') %>%
                     as.integer()) %>%
-    dplyr::mutate(date = stringr::str_extract(day_id, '\\d{4}-\\d{2}-\\d{2}') %>%
+    dplyr::mutate(date = stringr::str_extract(.data$day_id, '\\d{4}-\\d{2}-\\d{2}') %>%
                     lubridate::ymd()) %>%
-    dplyr::select(-day_id) %>%
+    dplyr::select(-.data$day_id) %>%
     tidyr::unnest(cols = c('shift_type')) %>%
-    dplyr::mutate(shift_type = X1 %>%
+    dplyr::mutate(shift_type = .data$X1 %>%
                     forcats::as_factor()) %>%
-    dplyr::select(-X1)
+    dplyr::select(-.data$X1)
 
   rm(day_ids, shift_types)
 
@@ -50,7 +53,7 @@ load_tidy_schedule <- function(file_path) {
     dplyr::rename(doctor_name = '.')
 
   doctor_ids <- doctor_elements %>%
-    html_attr('onmouseover') %>%
+    rvest::html_attr('onmouseover') %>%
     tibble::tibble() %>%
     dplyr::rename(doctor_id = '.')
 
@@ -58,9 +61,9 @@ load_tidy_schedule <- function(file_path) {
 
   names_by_ids <- doctor_names %>%
     dplyr::bind_cols(doctor_ids) %>%
-    dplyr::mutate(doctor_id = stringr::str_extract(doctor_id, '\\d{1,3}') %>%
+    dplyr::mutate(doctor_id = stringr::str_extract(.data$doctor_id, '\\d{1,3}') %>%
                     as.integer()) %>%
-    dplyr::mutate(doctor_name = doctor_name %>%
+    dplyr::mutate(doctor_name = .data$doctor_name %>%
                     stringr::str_squish() %>%
                     forcats::as_factor())
 
@@ -68,9 +71,9 @@ load_tidy_schedule <- function(file_path) {
 
   names_by_ids %>%
     dplyr::full_join(shifts_by_days, by = 'doctor_id') %>%
-    dplyr::select(-doctor_id) %>%
-    dplyr::relocate(date, doctor_name, shift_type) %>%
+    dplyr::select(-.data$doctor_id) %>%
+    dplyr::relocate(date, .data$doctor_name, .data$shift_type) %>%
     tidyr::drop_na() %>%
-    dplyr::mutate(shift_type = forcats::fct_drop(shift_type)) %>%
+    dplyr::mutate(shift_type = forcats::fct_drop(.data$shift_type)) %>%
     return()
 }

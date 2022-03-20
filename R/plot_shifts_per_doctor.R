@@ -10,27 +10,30 @@
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md
 #'
+#' @importFrom magrittr "%>%"
+#' @importFrom rlang .data
+#'
 #' @examples
 #' # Display graph right away.
-#' plot_shifts_per_doctor(tidy_schedule)
+#' plot_shifts_per_doctor(example_schedule)
 #'
 #' # Plot only a subset of shifts.
-#' tidy_schedule %>%
+#' example_schedule %>%
 #'     dplyr::filter(shift_type %in% c('Pjour', 'Bjour')) %>%
 #'     plot_shifts_per_doctor()
 #'
 #' # Same as above but also change axis label and save plot as
 #' # an object for later use.
-#' plot_of_shifts <- tidy_schedule %>%
+#' plot_of_shifts <- example_schedule %>%
 #'     dplyr::filter(shift_type %in% c('Pjour', 'Bjour')) %>%
 #'     plot_shifts_per_doctor() +
 #'     ggplot2::ylab('Number of Night Shifts')
 plot_shifts_per_doctor <- function(tidy_schedule) {
   tidy_schedule %>%
-    ggplot2::ggplot(aes(x = doctor_name %>%
+    ggplot2::ggplot(ggplot2::aes(x = .data$doctor_name %>%
                           forcats::fct_infreq() %>%
                           forcats::fct_rev(),
-                        fill = shift_type)) +
+                        fill = .data$shift_type)) +
     ggplot2::geom_bar() +
     ggplot2::coord_flip() +
     ggplot2::ggtitle('Shifts Per Doctor',

@@ -19,12 +19,12 @@ doctor is scheduled and the mean for all the doctors in the schedule.
 }
 \examples{
 # Show plot right away.
-plot_difference_from_mean(tidy_schedule)
+plot_difference_from_mean(example_schedule)
 
 # Filter certain shift types, exclude one doctor, and save the ggplot as an object for later use.
-saved_graph <- tidy_schedule \%>\%
-    filter(shift_type \%in\% c('Pjour', 'Mjour')) \%>\%
-    filter(doctor_name != 'Hansson, Anders') \%>\%
+saved_graph <- example_schedule \%>\%
+    dplyr::filter(shift_type \%in\% c('Pjour', 'Mjour')) \%>\%
+    dplyr::filter(doctor_name != 'Olsson, Sofie') \%>\%
     plot_difference_from_mean()
 }
 \seealso{

@@ -18,16 +18,16 @@ Plots a bar graph of the total shifts per doctor, stacked by shift type.
 }
 \examples{
 # Display graph right away.
-plot_shifts_per_doctor(tidy_schedule)
+plot_shifts_per_doctor(example_schedule)
 
 # Plot only a subset of shifts.
-tidy_schedule \%>\%
+example_schedule \%>\%
     dplyr::filter(shift_type \%in\% c('Pjour', 'Bjour')) \%>\%
     plot_shifts_per_doctor()
 
 # Same as above but also change axis label and save plot as
 # an object for later use.
-plot_of_shifts <- tidy_schedule \%>\%
+plot_of_shifts <- example_schedule \%>\%
     dplyr::filter(shift_type \%in\% c('Pjour', 'Bjour')) \%>\%
     plot_shifts_per_doctor() +
     ggplot2::ylab('Number of Night Shifts')

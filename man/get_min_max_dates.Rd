@@ -18,7 +18,7 @@ Returns a list of the first and last date in a schedule as returned by
 \code{load_tidy_schedule()}. Meant to be used for creating titles for plots.
 }
 \examples{
-min_max_dates <- get_min_max_dates(tidy_schedule)
+min_max_dates <- get_min_max_dates(example_schedule)
 }
 \seealso{
 \code{\link[=load_tidy_schedule]{load_tidy_schedule()}}

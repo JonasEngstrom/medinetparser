@@ -10,19 +10,22 @@
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md
 #'
+#' @importFrom magrittr "%>%"
+#' @importFrom rlang .data
+#'
 #' @examples
 #' # Display graph right away.
-#' plot_shift_type_by_frequency(tidy_schedule)
+#' plot_shift_type_by_frequency(example_schedule)
 #'
 #' # Plot shifts for a single doctor, collapsing related categories,
 #' # saving the ggplot to an object for later use.
-#' saved_graph <- tidy_schedule %>%
-#'     dplyr::filter(doctor_name == 'Åkesson, Annika') %>%
+#' saved_graph <- example_schedule %>%
+#'     dplyr::filter(doctor_name == 'Karlsson, Elin') %>%
 #'     dplyr::mutate(shift_type = forcats::fct_collapse(shift_type, `C-op` = c('Opkir', 'Opkk'))) %>%
 #'     plot_shift_type_by_frequency()
 plot_shift_type_by_frequency <- function(tidy_schedule) {
   tidy_schedule %>%
-    ggplot2::ggplot(aes(x = shift_type %>%
+    ggplot2::ggplot(ggplot2::aes(x = .data$shift_type %>%
                           forcats::fct_infreq())) +
     ggplot2::geom_bar() +
     ggplot2::ggtitle('Shift Type by Frequency',
