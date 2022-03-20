@@ -4,14 +4,11 @@
 \alias{plot_difference_from_mean}
 \title{Plot Difference from Mean}
 \usage{
-plot_difference_from_mean(tidy_schedule, text_distance = 0.25)
+plot_difference_from_mean(tidy_schedule)
 }
 \arguments{
 \item{tidy_schedule}{A tibble containing a schedule, as loaded by
 \code{load_tidy_schedule()}.}
-
-\item{text_distance}{The distance between the top of the bars and the number
-of shifts. Defaults to 0.25.}
 }
 \value{
 A ggplot with a bar chart.
@@ -23,9 +20,6 @@ doctor i schedule and the mean for all the doctors in the schedule.
 \examples{
 # Show plot right away.
 plot_difference_from_mean(tidy_schedule)
-
-# Show plot right away, adjusting the distance of the text from the top of the bars.
-plot_difference_from_mean(tidy_schedule, 2)
 
 # Filter certain shift types, exclude one doctor, and save the ggplot as an object for later use.
 saved_graph <- tidy_schedule \%>\%
