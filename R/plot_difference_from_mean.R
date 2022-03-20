@@ -1,7 +1,7 @@
 #' Plot Difference from Mean
 #'
 #' Plots a bar graph of the difference between the number of shifts that a
-#' doctor i schedule and the mean for all the doctors in the schedule.
+#' doctor is scheduled and the mean for all the doctors in the schedule.
 #'
 #' @param tidy_schedule A tibble containing a schedule, as loaded by
 #'   `load_tidy_schedule()`.

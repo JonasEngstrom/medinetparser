@@ -15,7 +15,7 @@ A ggplot with a bar chart.
 }
 \description{
 Plots a bar graph of the difference between the number of shifts that a
-doctor i schedule and the mean for all the doctors in the schedule.
+doctor is scheduled and the mean for all the doctors in the schedule.
 }
 \examples{
 # Show plot right away.
