@@ -1,11 +1,19 @@
 #' Plot Weekend Work Distribution
 #'
-#' Takes a schedule from `load_tidy_schedule()` and returns a plot of the distribution of weekends worked by doctor, partitioned by split by quartiles of weekends entirely off work.
+#' Takes a schedule from `load_tidy_schedule()` and returns a plot of the
+#' distribution of weekends worked by doctor, partitioned by split by quartiles
+#' of weekends entirely off work.
 #'
 #' @param tidy_schedule A schedule loaded by `load_tidy_schedule()`.
-#' @param shift_types The shift types in Medinet to count as weekend work. Certain shift types, such as vacation, should not be included in this vector to yield accurate results.
-#' @param shift_days The days to count as weekend. Defaults to Friday, Saturday, and Sunday, as weekend on-call shifts would start on Friday in the schedule. This might vary by department and might need to be adjusted.
-#' @param quartile_labels Labels for quartiles in the graph. As it defaults to Swedish, this parameter is included to facilitate use in other languages. Axis labels and titles can be changed using standard `ggplot2` syntax.
+#' @param shift_types The shift types in Medinet to count as weekend work.
+#'   Certain shift types, such as vacation, should not be included in this
+#'   vector to yield accurate results.
+#' @param shift_days The days to count as weekend. Defaults to Friday, Saturday,
+#'   and Sunday, as weekend on-call shifts would start on Friday in the
+#'   schedule. This might vary by department and might need to be adjusted.
+#' @param quartile_labels Labels for quartiles in the graph. As it defaults to
+#'   Swedish, this parameter is included to facilitate use in other languages.
+#'   Axis labels and titles can be changed using standard `ggplot2` syntax.
 #'
 #' @return
 #' @export
