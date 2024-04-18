@@ -38,8 +38,9 @@ plot_weekend_work <- function(tidy_schedule,
         magrittr::not()
     ) |>
     dplyr::group_by(doctor_name) |>
-    dplyr::mutate(percentage = sum(golden_weekend) / (max(week_number) - min(week_number)), quartile = cut(percentage, c(0,0.25,0.5,0.75,1.1), labels = quartile_labels) |>  forcats::fct_rev()) |>
+    dplyr::mutate(percentage = sum(golden_weekend) / (max(week_number) - min(week_number)), quartile = cut(percentage, c(0,0.25,0.5,0.75,1.1), labels = quartile_labels) |> forcats::fct_rev()) |>
     dplyr::ungroup() |>
+    dplyr::mutate(quartile = tidyr::replace_na(quartile, quartile_labels[4])) |>
     ggplot2::ggplot(
       ggplot2::aes(x = doctor_name |>
             reorder(-golden_weekend) |>
@@ -53,11 +54,11 @@ plot_weekend_work <- function(tidy_schedule,
         paste(
           'vecka ' |>
             rbind(
-              schema_tidy |>
+              tidy_schedule |>
                 get_min_max_dates() |>
                 lubridate::week() |>
                 rbind(' år ') |>
-                rbind(schema_tidy |> get_min_max_dates() |> lubridate::year())
+                rbind(tidy_schedule |> get_min_max_dates() |> lubridate::year())
               ) |>
             rbind(c(' och ', '.')) |>
             c() |>
