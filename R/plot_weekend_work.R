@@ -15,7 +15,7 @@
 #'   Swedish, this parameter is included to facilitate use in other languages.
 #'   Axis labels and titles can be changed using standard `ggplot2` syntax.
 #'
-#' @return
+#' @return A ggplot.
 #' @export
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md

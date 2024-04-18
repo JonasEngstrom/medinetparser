@@ -2,9 +2,11 @@
 
 export(get_min_max_dates)
 export(load_tidy_schedule)
+export(merge_schedule_files)
 export(plot_difference_from_mean)
 export(plot_shift_type_by_frequency)
 export(plot_shifts_per_doctor)
 export(plot_weekend_work)
 export(tally_shifts)
+importFrom(magrittr,"%>%")
 importFrom(rlang,.data)
