@@ -27,6 +27,9 @@ schedule. This might vary by department and might need to be adjusted.}
 Swedish, this parameter is included to facilitate use in other languages.
 Axis labels and titles can be changed using standard \code{ggplot2} syntax.}
 }
+\value{
+A ggplot.
+}
 \description{
 Takes a schedule from \code{load_tidy_schedule()} and returns a plot of the
 distribution of weekends worked by doctor, partitioned by split by quartiles

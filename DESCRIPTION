@@ -9,13 +9,13 @@ Description: Parses data from the Medinet Scheduling system, developed
     is meant to aid scheduling and follow up. This project is in no
     way connected to the developers of Medinet.
 Depends:
+    magrittr,
     R (>= 2.10)
 Imports:
     dplyr,
     forcats,
     ggplot2,
     lubridate,
-    magrittr,
     rlang,
     rvest,
     stats,

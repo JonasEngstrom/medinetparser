@@ -8,7 +8,7 @@
 #' @return A tibble with tallies of shift types per doctor.
 #' @export
 #' @seealso [medinetparser::load_tidy_schedule()]
-#' @md |>
+#' @md
 #'
 #' @examples
 #' tally_table <- tally_shifts(example_schedule)
