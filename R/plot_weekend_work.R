@@ -49,7 +49,20 @@ plot_weekend_work <- function(tidy_schedule,
     ) +
     ggplot2::geom_bar() +
     ggplot2::labs(
-      title = 'Helt lediga helger kontra arbetade helger uppdelade per läkare på AnOpIVA CSK, årets första 22 veckor år 2024',
+      title = 'Helt lediga helger kontra arbetade helger uppdelade per läkare, mellan' |>
+        paste(
+          'vecka ' |>
+            rbind(
+              schema_tidy |>
+                get_min_max_dates() |>
+                lubridate::week() |>
+                rbind(' år ') |>
+                rbind(schema_tidy |> get_min_max_dates() |> lubridate::year())
+              ) |>
+            rbind(c(' och ', '.')) |>
+            c() |>
+            (\(x) ifelse(x[4] == x[9], paste(x[c(-3, -4)], collapse = ''), paste(x, collapse = '')))()
+        ),
       subtitle = 'Som helt ledig helg räknas helg utan långfredag, primär-, mellan- eller bakjour. Helgdagar utöver lördag och söndag har ej räknats in.'
     ) +
     ggplot2::xlab('Läkare') +
