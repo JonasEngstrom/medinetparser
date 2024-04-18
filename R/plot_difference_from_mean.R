@@ -11,7 +11,6 @@
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md
 #'
-#' @importFrom magrittr "%>%"
 #' @importFrom rlang .data
 #'
 #' @examples
@@ -19,21 +18,21 @@
 #' plot_difference_from_mean(example_schedule)
 #'
 #' # Filter certain shift types, exclude one doctor, and save the ggplot as an object for later use.
-#' saved_graph <- example_schedule %>%
-#'     dplyr::filter(shift_type %in% c('Pjour', 'Mjour')) %>%
-#'     dplyr::filter(doctor_name != 'Olsson, Sofie') %>%
+#' saved_graph <- example_schedule |>
+#'     dplyr::filter(shift_type %in% c('Pjour', 'Mjour')) |>
+#'     dplyr::filter(doctor_name != 'Olsson, Sofie') |>
 #'     plot_difference_from_mean()
 plot_difference_from_mean <- function(tidy_schedule) {
-  averaged_schedule <- tidy_schedule %>%
-    dplyr::group_by(.data$doctor_name) %>%
-    dplyr::reframe(forcats::fct_count(.data$shift_type)) %>%
-    dplyr::group_by(.data$doctor_name) %>%
-    dplyr::summarize(sum_of_shifts = sum(.data$n)) %>%
-    dplyr::mutate(difference_from_mean = .data$sum_of_shifts - mean(.data$sum_of_shifts)) %>%
+  averaged_schedule <- tidy_schedule |>
+    dplyr::group_by(.data$doctor_name) |>
+    dplyr::reframe(forcats::fct_count(.data$shift_type)) |>
+    dplyr::group_by(.data$doctor_name) |>
+    dplyr::summarize(sum_of_shifts = sum(.data$n)) |>
+    dplyr::mutate(difference_from_mean = .data$sum_of_shifts - mean(.data$sum_of_shifts)) |>
     dplyr::ungroup()
 
-  averaged_schedule %>%
-    ggplot2::ggplot(ggplot2::aes(x = .data$doctor_name %>%
+  averaged_schedule |>
+    ggplot2::ggplot(ggplot2::aes(x = .data$doctor_name |>
                                    stats::reorder(.data$difference_from_mean),
                                  y = .data$difference_from_mean)) +
     ggplot2::geom_col() +
@@ -44,11 +43,11 @@ plot_difference_from_mean <- function(tidy_schedule) {
                            'and',
                            medinetparser::get_min_max_dates(tidy_schedule)[2])) +
     ggplot2::ylab(paste('Difference in Number of Shifts from the Mean of ',
-                        averaged_schedule %>%
-                          dplyr::summarize(mean(.data$sum_of_shifts)) %>%
+                        averaged_schedule |>
+                          dplyr::summarize(mean(.data$sum_of_shifts)) |>
                           round(2),
                         ' Shifts',
                         sep = '')) +
-    ggplot2::xlab('Doctor') %>%
-    return()
+    ggplot2::xlab('Doctor') |>
+    (\(x) return(x))()
 }
