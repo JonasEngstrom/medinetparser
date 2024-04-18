@@ -11,15 +11,19 @@
 #' @md
 #'
 #' @importFrom magrittr "%>%"
-#' @importFrom rlang .data
 #'
 #' @examples
 #' tally_table <- tally_shifts(example_schedule)
 tally_shifts <- function(tidy_schedule) {
+  NULL ->
+    doctor_name ->
+    shift_type ->
+    n
+
   tidy_schedule %>%
-    dplyr::group_by(.data$doctor_name, .data$shift_type) %>%
+    dplyr::group_by(doctor_name, shift_type) %>%
     dplyr::tally() %>%
-    tidyr::pivot_wider(names_from = .data$shift_type, values_from = .data$n) %>%
+    tidyr::pivot_wider(names_from = shift_type, values_from = n) %>%
     dplyr::mutate(dplyr::across(dplyr::everything(), ~ tidyr::replace_na(.x, 0))) %>%
     return()
 }

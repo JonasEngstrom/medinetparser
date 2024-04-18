@@ -26,7 +26,8 @@
 plot_difference_from_mean <- function(tidy_schedule) {
   averaged_schedule <- tidy_schedule %>%
     dplyr::group_by(.data$doctor_name) %>%
-    dplyr::summarize(forcats::fct_count(.data$shift_type)) %>%
+    dplyr::reframe(forcats::fct_count(.data$shift_type)) %>%
+    dplyr::group_by(.data$doctor_name) %>%
     dplyr::summarize(sum_of_shifts = sum(.data$n)) %>%
     dplyr::mutate(difference_from_mean = .data$sum_of_shifts - mean(.data$sum_of_shifts)) %>%
     dplyr::ungroup()
