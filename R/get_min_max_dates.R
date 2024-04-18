@@ -11,16 +11,14 @@
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md
 #'
-#' @importFrom magrittr "%>%"
-#'
 #' @examples
 #' min_max_dates <- get_min_max_dates(example_schedule)
 get_min_max_dates <- function(tidy_schedule) {
-  c(tidy_schedule %>%
-      dplyr::summarise(min(date)) %>%
+  c(tidy_schedule |>
+      dplyr::summarise(min(date)) |>
       dplyr::pull(),
-    tidy_schedule %>%
-      dplyr::summarise(max(date)) %>%
-      dplyr::pull()) %>%
-    return()
+    tidy_schedule |>
+      dplyr::summarise(max(date)) |>
+      dplyr::pull()) |>
+    (\(x) return(x))()
 }

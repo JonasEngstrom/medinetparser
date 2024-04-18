@@ -10,7 +10,6 @@
 #' @seealso [medinetparser::load_tidy_schedule()]
 #' @md
 #'
-#' @importFrom magrittr "%>%"
 #' @importFrom rlang .data
 #'
 #' @examples
@@ -18,20 +17,20 @@
 #' plot_shifts_per_doctor(example_schedule)
 #'
 #' # Plot only a subset of shifts.
-#' example_schedule %>%
-#'     dplyr::filter(shift_type %in% c('Pjour', 'Bjour')) %>%
+#' example_schedule |>
+#'     dplyr::filter(shift_type %in% c('Pjour', 'Bjour')) |>
 #'     plot_shifts_per_doctor()
 #'
 #' # Same as above but also change axis label and save plot as
 #' # an object for later use.
-#' plot_of_shifts <- example_schedule %>%
-#'     dplyr::filter(shift_type %in% c('Pjour', 'Bjour')) %>%
+#' plot_of_shifts <- example_schedule |>
+#'     dplyr::filter(shift_type %in% c('Pjour', 'Bjour')) |>
 #'     plot_shifts_per_doctor() +
 #'     ggplot2::ylab('Number of Night Shifts')
 plot_shifts_per_doctor <- function(tidy_schedule) {
-  tidy_schedule %>%
-    ggplot2::ggplot(ggplot2::aes(x = .data$doctor_name %>%
-                          forcats::fct_infreq() %>%
+  tidy_schedule |>
+    ggplot2::ggplot(ggplot2::aes(x = .data$doctor_name |>
+                          forcats::fct_infreq() |>
                           forcats::fct_rev(),
                         fill = .data$shift_type)) +
     ggplot2::geom_bar() +
@@ -44,6 +43,6 @@ plot_shifts_per_doctor <- function(tidy_schedule) {
                      ) +
     ggplot2::xlab('Doctor') +
     ggplot2::ylab('Shift Count') +
-    ggplot2::labs(fill = 'Shift Type') %>%
-    return()
+    ggplot2::labs(fill = 'Shift Type') |>
+    (\(x) return(x))()
 }

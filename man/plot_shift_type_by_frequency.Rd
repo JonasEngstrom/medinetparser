@@ -22,9 +22,9 @@ plot_shift_type_by_frequency(example_schedule)
 
 # Plot shifts for a single doctor, collapsing related categories,
 # saving the ggplot to an object for later use.
-saved_graph <- example_schedule \%>\%
-    dplyr::filter(doctor_name == 'Karlsson, Elin') \%>\%
-    dplyr::mutate(shift_type = forcats::fct_collapse(shift_type, `C-op` = c('Opkir', 'Opkk'))) \%>\%
+saved_graph <- example_schedule |>
+    dplyr::filter(doctor_name == 'Karlsson, Elin') |>
+    dplyr::mutate(shift_type = forcats::fct_collapse(shift_type, `C-op` = c('Opkir', 'Opkk'))) |>
     plot_shift_type_by_frequency()
 }
 \seealso{

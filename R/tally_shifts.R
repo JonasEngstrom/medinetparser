@@ -8,9 +8,7 @@
 #' @return A tibble with tallies of shift types per doctor.
 #' @export
 #' @seealso [medinetparser::load_tidy_schedule()]
-#' @md
-#'
-#' @importFrom magrittr "%>%"
+#' @md |>
 #'
 #' @examples
 #' tally_table <- tally_shifts(example_schedule)
@@ -20,10 +18,10 @@ tally_shifts <- function(tidy_schedule) {
     shift_type ->
     n
 
-  tidy_schedule %>%
-    dplyr::group_by(doctor_name, shift_type) %>%
-    dplyr::tally() %>%
-    tidyr::pivot_wider(names_from = shift_type, values_from = n) %>%
-    dplyr::mutate(dplyr::across(dplyr::everything(), ~ tidyr::replace_na(.x, 0))) %>%
-    return()
+  tidy_schedule |>
+    dplyr::group_by(doctor_name, shift_type) |>
+    dplyr::tally() |>
+    tidyr::pivot_wider(names_from = shift_type, values_from = n) |>
+    dplyr::mutate(dplyr::across(dplyr::everything(), ~ tidyr::replace_na(.x, 0))) |>
+    (\(x) return(x))()
 }
